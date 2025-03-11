@@ -1,19 +1,40 @@
-if (!require("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("limma")
-BiocManager::install("EnhancedVolcano")
-install.packages('factoextra')
-library(ggplot2)
-library(limma)
-library(EnhancedVolcano)
-library(dplyr)
-library(tidyr)
-library(pheatmap)
-library(grid)
-library(cowplot)
-library(stats)
-library(ggfortify)
-library(factoextra)
+# Define required packages
+required_packages <- c(
+  "BiocManager", "limma", "EnhancedVolcano", "factoextra", 
+  "ggplot2", "dplyr", "tidyr", "pheatmap", "grid", "cowplot", 
+  "stats", "ggfortify"
+)
+
+# Function to install missing packages
+install_if_missing <- function(packages) {
+  installed <- rownames(installed.packages()) # Get installed packages
+  missing <- packages[!(packages %in% installed)] # Check missing ones
+  if (length(missing) > 0) {
+    message("Installing missing packages: ", paste(missing, collapse = ", "))
+    install.packages(missing, repos = "https://cloud.r-project.org/")
+  }
+}
+
+# Ensure Bioconductor packages are installed correctly
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager", repos = "https://cloud.r-project.org/")
+}
+
+# Install missing CRAN packages
+install_if_missing(setdiff(required_packages, c("limma", "EnhancedVolcano")))
+
+# Install missing Bioconductor packages
+bioc_packages <- c("limma", "EnhancedVolcano")
+for (pkg in bioc_packages) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    BiocManager::install(pkg, ask = FALSE)
+  }
+}
+
+# Load all libraries
+lapply(required_packages, library, character.only = TRUE)
+
+message("All required packages are installed and loaded successfully!")
 
 # setwd to correct relative path
 setwd('/Users/shaon/Desktop/PROTACS/github_deposition/data')
