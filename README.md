@@ -28,4 +28,4 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
 
-3. View regenerated files and outputs in `DrugRefiner-ML/data/` & `DrugRefiner-ML/figures/`
+3. View regenerated files, predictions and outputs in `DrugRefiner-ML/data/` & `DrugRefiner-ML/figures/`
