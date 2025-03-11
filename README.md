@@ -23,7 +23,7 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
    ```sh
    cd DrugRefiner-ML/allscripts
 
-2. Execute the scripts in alphanumerical order, i.e:
+2. Execute the scripts in alphanumerical order, starting with:
 
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
