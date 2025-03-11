@@ -1,0 +1,60 @@
+# Ignore file in specific subfolders
+data/*
+!data/README.md
+figures/*
+!figures/README.md
+final_models/*
+!final_models/README.md
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# R session and RStudio files
+.Rapp.history
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+rsconnect/
+.Renviron
+*_cache/
+*.utf8.md
+renv/library/
+shiny-server/
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# VSCode settings and cache
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+
+# Build artifacts or compiled files
+dist/
+build/
+*.exe
+*.dll
+*.so
+
+# Node.js modules
+node_modules/
+
+# IDE-specific files
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.temp
+
