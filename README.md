@@ -17,11 +17,5 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
 
 ## Running the Code
 
-
-Once dependencies and source data are installed:  
-
-1. Navigate to the scripts folder:  
-   ```sh
-   cd DrugRefiner-ML/allscripts
-
-2. Execute the scripts in alphanumerical order. 
+- Navigate into `DrugRefiner-ML/allscripts/`. 
+- Execute the scripts in alphanumerical order. 
