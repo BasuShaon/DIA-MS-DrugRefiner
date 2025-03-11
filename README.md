@@ -19,11 +19,13 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
 ## Running the Code
 
 1. Navigate into `DrugRefiner-ML/scripts/`. 
+
    ```sh
    cd DrugRefiner-ML/allscripts
 
 2. Execute the scripts in alphanumerical order. Example:
+
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
 
-3. View regenerated intermediate files and outputs in `DrugRefiner-ML/data/` and `DrugRefiner-ML/figures/`
+3. View regenerated files and outputs in `DrugRefiner-ML/data/` & `DrugRefiner-ML/figures/`
