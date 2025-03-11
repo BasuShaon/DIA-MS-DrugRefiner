@@ -139,9 +139,9 @@ plt.show()
 
 # %% Dispersion plot of summarized proteins
 
-DMSO_frame = module_summarystatistics.calculate_cv(pasef_summarized_clustered[metadata_encoded['dmso\n']==True], 'dmso')
+DMSO_frame = device_summarystatistics.calculate_cv(pasef_summarized_clustered[metadata_encoded['dmso\n']==True], 'dmso')
 
-drug_frame = module_summarystatistics.calculate_cv(pasef_summarized_clustered[~metadata_encoded['dmso\n']==True], 'drug')
+drug_frame = device_summarystatistics.calculate_cv(pasef_summarized_clustered[~metadata_encoded['dmso\n']==True], 'drug')
 
 all = pd.concat([DMSO_frame, drug_frame]).reset_index(drop = True)
 

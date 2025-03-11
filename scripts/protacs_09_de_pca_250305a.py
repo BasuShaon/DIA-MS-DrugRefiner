@@ -233,7 +233,7 @@ plt.savefig(os.path.join(filepath3, 'PDF_violinbox_FDA_PROTACs_all.pdf'))
 plt.show()
 
 # z-test with CDF
-module_summarystatistics.z_test(df.iloc[:,0], df.iloc[:,1])
+device_summarystatistics.z_test(df.iloc[:,0], df.iloc[:,1])
 
 # %% Export datasets
 

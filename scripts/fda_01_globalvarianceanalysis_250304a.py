@@ -256,11 +256,11 @@ pasef_summarized = pd.read_csv(os.path.join(data_out, 'SB_FDA_prmatrix_filtered_
                      delimiter=',', 
                      index_col = 0)
 
-importlib.reload(module_summarystatistics)
+importlib.reload(device_summarystatistics)
 
-DMSO_frame = module_summarystatistics.calculate_cv(pasef_summarized[metadata_encoded['DMSO']==True], 'dmso')
+DMSO_frame = device_summarystatistics.calculate_cv(pasef_summarized[metadata_encoded['DMSO']==True], 'dmso')
 
-drug_frame = module_summarystatistics.calculate_cv(pasef_summarized[~metadata_encoded['DMSO']==True], 'drug')
+drug_frame = device_summarystatistics.calculate_cv(pasef_summarized[~metadata_encoded['DMSO']==True], 'drug')
 
 all_df = pd.concat([DMSO_frame, drug_frame]).reset_index(drop = True)
 
