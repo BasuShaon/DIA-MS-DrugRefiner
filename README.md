@@ -10,7 +10,7 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
 
 - R 4.3.1 (use renv package to restore dependencies from 'renv.lock')
 
-## Downloads
+## Installation / Download
 
 1. Download data from figshare
 
@@ -23,12 +23,9 @@ Drug activity deconvolution using high-throughput screening, ultra-fast protemic
    ```sh
    cd DrugRefiner-ML/allscripts
 
-2. Execute the scripts in alphanumerical order. i.e.:
+2. Execute the scripts in alphanumerical order, i.e:
 
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
-   Rscript fda_02_limma_drug_250304a.R
-   Python3 fda_03_de_pca_250304a.py
-   ...
 
 3. View regenerated files and outputs in `DrugRefiner-ML/data/` & `DrugRefiner-ML/figures/`
