@@ -159,7 +159,7 @@ round2.export_all_predictions(AZmeta, round2.calibrated_model)
 
 # %% export GBDT models
 
-model_out = os.path.join(path, '..' ,'drugtox-AI')
+model_out = os.path.join(path, '..' ,'drugscoringAI')
 
 round2.best_model.get_booster().save_model(os.path.join(model_out, 'final_model_250305a.json')) # final model
 
