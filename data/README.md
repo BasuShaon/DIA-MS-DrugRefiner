@@ -1,1 +1,2 @@
-Download source data at Figshare using private URL
+Download source data at Figshare using privately supplied token / URL
+
