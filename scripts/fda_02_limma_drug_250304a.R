@@ -3,7 +3,7 @@
 required_packages <- c(
   "BiocManager", "limma", "EnhancedVolcano", "factoextra", 
   "ggplot2", "dplyr", "tidyr", "pheatmap", "grid", "cowplot", 
-  "stats", "ggfortify"
+  "stats", "ggfortify", 'renv'
 )
 
 # Function to install missing packages
