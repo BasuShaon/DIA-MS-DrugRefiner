@@ -5,6 +5,8 @@ figures/*
 !figures/README.md
 final_models/*
 !final_models/README.md
+renv/*
+renv.R
 
 # OS-specific files
 .DS_Store
