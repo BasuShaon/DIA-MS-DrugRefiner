@@ -58,6 +58,6 @@ Drug activity deconvolution using high-throughput screening, ultra-fast proteomi
    Rscript protacs_19_ML_dotplot_analog_250507a.R
    Python3 protacs_20_stats_wetlab_250507a.py
 
-   *Ignore modules containing device objects*
+   *Ignore python modules containing device objects*
 
 3. View scores, intermediate and output files in `/data/` & `/figures/`
