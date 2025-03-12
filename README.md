@@ -4,9 +4,9 @@
 
 Drug activity deconvolution using high-throughput screening, ultra-fast proteomics, and machine learning. 
 
-## Environment
+## Environments
 
-- Python 3.11.5 (download dependencies in local or virtual environment from 'requirements.txt') 
+- Python 3.11.5 (download dependencies in a virtual environment from 'requirements.txt') 
 
 - R 4.3.1 + Bioconductor 3.18 (use renv to restore dependencies from 'renv.lock')
 
