@@ -1,6 +1,7 @@
 # Ignore file in specific subfolders
 data/*
 !data/README.md
+
 figures/*
 !figures/README.md
 final_models/*
@@ -18,6 +19,7 @@ Thumbs.db
 .RData
 .Ruserdata
 .Rproj.user/
+.Rprofile
 *.Rproj
 rsconnect/
 .Renviron

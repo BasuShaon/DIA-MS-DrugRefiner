@@ -33,5 +33,6 @@ Drug activity deconvolution using high-throughput screening, ultra-fast proteomi
 
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
+   *Ignore modules contining device objects*
 
 3. View scores, intermediate and output files in `/data/` & `/figures/`
