@@ -12,20 +12,26 @@ Drug activity deconvolution using high-throughput screening, ultra-fast proteomi
 
 ## Installation / Download
 
-1. Download source data from FigShare (private token) 
+1. Clone directory in local folder
 
-2. Copy contents into `DrugRefiner-ML/data/`.
+   ```sh
+   git clone https://github.com/BasuShaon/DrugRefiner-ML
+   cd DrugRefiner-ML
+
+2. Download source data from FigShare (privately supplied token - 1 year emargo) 
+
+3. Copy contents into `/data/`.
 
 ## Running the Code
 
-1. Navigate into `DrugRefiner-ML/scripts/`. 
+1. Navigate into `/scripts/`. 
 
    ```sh
-   cd DrugRefiner-ML/allscripts
+   cd scripts
 
 2. Execute the scripts in alphanumerical order, starting with:
 
    ```sh
    Python3 fda_01_globalvarianceanalysis_250304a.py
 
-3. View scores and output files in `DrugRefiner-ML/data/` & `DrugRefiner-ML/figures/`
+3. View scores, intermediate and output files in `/data/` & `/figures/`
