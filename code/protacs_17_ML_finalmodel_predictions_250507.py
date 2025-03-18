@@ -15,7 +15,7 @@ path = os.path.dirname(__file__)
 
 inputout = os.path.join(path, '..', 'data')
 
-modelout = os.path.join(path, '..', 'drugscoringAI')
+modelout = os.path.join(path, '..', 'scoring_models')
 
 figout = os.path.join(path, '..','figures')
 

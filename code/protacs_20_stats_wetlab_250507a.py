@@ -10,19 +10,17 @@ import os
 import sys
 import importlib
 import re
-import importlib
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 import device_summarystatistics
 
 # %%
 
-path = os.path.dirname(__file__) d
+path = os.path.dirname(__file__) 
 
 data_path = os.path.join(path, '..', 'data')
 
 fig_path = os.path.join(path, '..', 'figures')
 
-# %%
 # %% Glu_gal data for 381 (Figure 3)
 
 galactose = pd.read_excel(os.path.join(data_path, 'Figure3_Compound1_Galactose_250204a.xlsx'))
@@ -88,7 +86,7 @@ device_summarystatistics.t_test(pd.concat([seahorse['Enza '],seahorse['Control']
 plt.figure(figsize=(1.5,3))
 sns.boxplot(seahorse, order = ['Control','Enza ', 'Compound 1'])
 sns.swarmplot(seahorse, color = 'black')
-plt.savefig(os.path.join(fig_path, 'Fig3_seahosemax.pdf'))
+plt.savefig(os.path.join(fig_path, 'Fig3_seahorsemax.pdf'))
 
 # %% Complex II data for all (Figure 3 and Figure 4)
 
@@ -127,7 +125,6 @@ print((10**ic50_values.iloc[0:3]).mean())
 
 print((10**ic50_values.iloc[6:9]).mean())
 
-10**8.0281
 # %% Complex I data (Figure 4)
 importlib.reload(device_summarystatistics)
 # import data
@@ -148,8 +145,6 @@ device_summarystatistics.t_test(ic50_values.iloc[0:3], ic50_values.iloc[3:9])
 print((10**ic50_values.iloc[0:3]).mean())
 
 print((10**ic50_values.iloc[3:9]).mean())
-
-# %%
 
 # %% primary HCC data (Figure 4)
 
@@ -180,8 +175,16 @@ ic50s = (10**ic50_df).mean()
 # %% cell panel (Figure 4)
 
 panel = pd.read_excel(
-                os.path.join(data_path, 'Figure4_CellPanel_250207a.xlsx'),
-                index_col = 0).T
+                os.path.join(data_path, 'Figure4_CellPanel_250314a.xlsx'),
+                index_col = 0).astype(str).T
+
+panel[panel == '>30uM '] = '30000'
+
+panel = panel.astype(float)
+
+panel[panel > 30000] = 30000
+
+panel = panel/1000
 
 panel['Compound'] = ['1', '1', '1', '1',
                     '2', '2', '2', '2',
@@ -192,19 +195,36 @@ panel = panel.loc[panel['Compound']!='Enz']
 
 panel_long=panel.melt(id_vars=['Compound'], var_name =  'Cell', value_name='Value')
 
+AR_pos = ['LNCAP', 'VCAP']
 
-# Plot the nested boxplot
-plt.figure(figsize=(4,3.5))
-sns.boxplot(x='Cell', y='Value', hue='Compound', data=panel_long, palette='Set2')
-# Customization
-plt.axhline(-4.5, linestyle = '--', color = 'black')
-plt.xlabel('Cell Line')
-plt.ylabel('Measurement Value')
-plt.legend(title='Condition')
-plt.savefig(os.path.join(fig_path, 'HCC_lines.pdf'))
+panel_pos = panel_long.loc[panel_long['Cell'].isin(AR_pos)]
+panel_neg = panel_long.loc[~panel_long['Cell'].isin(AR_pos)]
+
+cell_summ = panel_long.groupby(['Cell', 'Compound'])['Value'].agg(['mean', 'std']).reset_index()
+
+cell_order = ['LNCAP','VCAP','SU-8686','LU99','MiaPaCa2']
+cell_summ['Cell'] = pd.Categorical(cell_summ['Cell'], categories=cell_order, ordered=True)
+
+plt.figure(figsize=(6, 6))  # Reduce width
+sns.scatterplot(
+    data=cell_summ, 
+    x='Compound', 
+    y='Cell', 
+    size=-np.log(cell_summ['mean']), 
+    hue=-np.log(cell_summ['mean']), 
+    palette='Reds',
+    sizes=(50, 500), 
+    alpha=0.7
+)
+plt.xticks(rotation=45, ha='right')  # Rotate labels
+plt.xticks(np.arange(0, len(cell_summ['Compound'].unique()), step=1))  # Adjust tick frequency
+plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+plt.margins(x=0.3, y=0.3) 
+plt.tight_layout()  # Adjust layout to reduce excess white space
+plt.savefig(os.path.join(fig_path, 'Figure4_GI50dotplot_250318a.pdf'))
 plt.show()
 
-# %%
+# %% Test cell lines for compound sensitivity
 
 panel = panel.assign(
                 factor = pd.Index(panel.index).str.replace(
@@ -219,13 +239,12 @@ ARneg = panel[panel.columns[2:panel.shape[1]-2]]
 device_summarystatistics.t_test(pd.Series(ARpos.values.flatten()),
                 pd.Series(ARneg.values.flatten()))
 
-
 ARneg_stat = ARneg.assign(
     factor = ['Comppound 1', 'Compound 1', 'Compound 1', 'Compound 1','Analogue', 'Analogue', 'Analogue', 'Analogue', 'Analogue', 'Analogue','Analogue','Analogue'])
 
-
 device_summarystatistics.t_test(pd.Series(ARneg_stat.loc[ARneg_stat['factor']!= 'Analogue'].iloc[:,0:3].values.flatten()),
                 pd.Series(ARneg_stat.loc[ARneg_stat['factor']== 'Analogue'].iloc[:,0:3].values.flatten()))
+
 
 # %% xenograft AR degradation (Figure 4)
 
@@ -234,14 +253,15 @@ importlib.reload(device_summarystatistics)
 degron = pd.read_excel(
                 os.path.join(data_path, 'Figure4_XenoGraftARdeg_250207a.xlsx'))
 
-device_summarystatistics.t_test(degron['Vehicle'], degron['Compound 3'])
+device_summarystatistics.t_test((np.log(degron['Vehicle'])), (np.log(degron['Compound 3'])))
+
+device_summarystatistics.one_test((np.log(degron['Compound 3'])), popmean = np.log(100))
 
 plt.figure(figsize = [1,3])
-sns.boxplot(degron)
+sns.boxplot(degron, showfliers = False)
 sns.swarmplot(degron, color = 'black')
-plt.axhline(device_summarystatistics.geometric_mean(degron['Vehicle']), 
-    color = 'red', linestyle = '--')
-plt.axhline(device_summarystatistics.geometric_mean(degron['Compound 3']), 
-    color = 'red', linestyle = '--')
+plt.yscale('log')
 plt.savefig(os.path.join(fig_path, 'Figure4_xenograft_ARdeg.pdf'))
 
+
+# %%
