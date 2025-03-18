@@ -39,7 +39,7 @@ project_root/
 │   ├── README.md          # instructions on sourcedata aquisition
 │
 │-- figures/         
-│   ├── README.md
+│   ├── README.m           # output folder to regenerate all figs
 │ 
 │-- scoring_models/             
 │   ├── final_model_250305a.json
@@ -47,6 +47,7 @@ project_root/
 │
 │-- requirements.txt      # Python dependencies for virtual / local env
 │-- renv.lock             # R environment lockfile
+│-- .gitignore  
 │-- README.md  
 
 ```
@@ -64,7 +65,7 @@ project_root/
 
    ```sh
    git clone https://github.com/BasuShaon/DrugRefiner-ML
-   cd DrugRefiner-ML
+   cd HT-MS-DrugRefiner
 
 2. Download source data from FigShare (privately supplied token - 1 year emargo) 
 
