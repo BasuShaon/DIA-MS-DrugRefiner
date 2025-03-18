@@ -36,10 +36,10 @@ project_root/
 │   ├── protacs_20_stats_wetlab_250307a.py
 │ 
 │-- data/             
-│   ├── README.md          # instructions on sourcedata aquisition
+│   ├── README.md         # instructions on sourcedata aquisition
 │
-│-- figures/         
-│   ├── README.m           # output folder to regenerate all figs
+│-- figures/              # output folder to regenerate all figs
+│   ├── README.m           
 │ 
 │-- scoring_models/             
 │   ├── final_model_250305a.json
@@ -64,7 +64,7 @@ project_root/
 1. Clone directory in local folder
 
    ```sh
-   git clone https://github.com/BasuShaon/DrugRefiner-ML
+   git clone https://github.com/BasuShaon/HT-MS-DrugRefiner.git
    cd HT-MS-DrugRefiner
 
 2. Download source data from FigShare (privately supplied token - 1 year emargo) 
