@@ -1,12 +1,13 @@
-# Proteomic DrugRefiner
+# HT-MS-DrugRefiner
 
 Drug activity deconvolution using high-throughput screening, ultra-fast proteomics, and machine learning. 
 
 ## Project Structure
 
 ```
-project_root/           
-│-- code/             
+project_root/      
+│     
+│-- code/                 # main folder with all scripts
 │   ├── device_gradientboostingmachine.py
 │   ├── device_summarystatistics.py    
 │   ├── fda_01_globalvarianceanalysis_250324a.py
