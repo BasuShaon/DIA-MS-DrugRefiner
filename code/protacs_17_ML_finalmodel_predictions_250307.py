@@ -43,6 +43,8 @@ tableS3.loc[pd.Series(tableS3.index).str.contains('AZ14197166').values, 'Drug'] 
 # check analogue edit
 tableS3.loc[tableS3['Drug'].isin(['Compound 1', 'Compound 2', 'Compound 3'])]
 
+tableS3.sort_values('Cluster', inplace = True)
+
 tableS3.to_csv(os.path.join(inputout, 'Science_HTMSdrugsafety_TableS3_250207a.csv'))
 
 # %% Cluster 15 and control predictions

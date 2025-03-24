@@ -39,7 +39,7 @@ project_root/
 │   ├── README.md         # instructions on sourcedata aquisition
 │
 │-- figures/              # output folder to regenerate all figs
-│   ├── README.m           
+│   ├── README.md           
 │ 
 │-- scoring_models/             
 │   ├── final_model_250305a.json
@@ -55,9 +55,9 @@ project_root/
 
 ### Environments
 
-- Python 3.11.5 (download dependencies in a virtual environment from 'requirements.txt') 
+- Python (download dependencies in a virtual environment from 'requirements.txt') 
 
-- R 4.3.1 + Bioconductor 3.18 (use renv to restore dependencies from 'renv.lock')
+- R + Bioconductor (use renv to restore dependencies from 'renv.lock')
 
 ### Installation / Download
 
@@ -67,13 +67,13 @@ project_root/
    git clone https://github.com/BasuShaon/HT-MS-DrugRefiner.git
    cd HT-MS-DrugRefiner
 
-2. Download source data from FigShare (privately supplied token - 1 year emargo) 
+2. Download source data from FigShare (privately supplied URL) 
 
-3. Copy contents into `data`.
+3. Copy contents into `/data`.
 
 ### Running the Code
 
-1. Navigate into `scripts`. 
+1. Navigate into `/scripts`. 
 
    ```sh
    cd scripts
@@ -87,4 +87,4 @@ project_root/
 
    *Ignore python modules containing device objects*
 
-3. View scores, intermediate and output files in `data` & `figures`
+3. View scores, intermediate and output files in `/data` & `/figures`
