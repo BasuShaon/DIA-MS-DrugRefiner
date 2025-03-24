@@ -55,9 +55,9 @@ project_root/
 
 ### Environments
 
-- Python (download dependencies in a virtual environment from 'requirements.txt') 
+- Python 3.11.5 (download dependencies in a virtual environment from 'requirements.txt') 
 
-- R + Bioconductor (use renv to restore dependencies from 'renv.lock')
+- R 4.3.1 + Bioconductor 3.18 (use renv to restore dependencies from 'renv.lock')
 
 ### Installation / Download
 
@@ -66,8 +66,9 @@ project_root/
    ```sh
    git clone https://github.com/BasuShaon/HT-MS-DrugRefiner.git
    cd HT-MS-DrugRefiner
+   pip install -r requirements.txt
 
-2. Download source data from FigShare (privately supplied URL) 
+2. Download source data from FigShare (privately shared URL) 
 
 3. Copy contents into `/data`.
 
