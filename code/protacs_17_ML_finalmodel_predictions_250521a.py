@@ -45,7 +45,7 @@ tableS3.loc[tableS3['Drug'].isin(['Compound 1', 'Compound 2', 'Compound 3'])]
 
 tableS3.sort_values('Cluster', inplace = True)
 
-tableS3.to_csv(os.path.join(inputout, 'HTMSdrugsafety_TableS3_250207a.csv'))
+tableS3.to_csv(os.path.join(inputout, 'Science_HTMSdrugsafety_TableS3_250207a.csv'))
 
 # %% Cluster 15 and control predictions
 cluster15 = modelvalues.loc[modelvalues['Cluster']==15].sort_values('Probability')
@@ -154,3 +154,5 @@ features = ['NDUFA5', 'CYC1', 'NDUFA4', 'NDUFB10', 'NDUFA13']
 analog[features].plot(kind = 'bar', legend = None)
 plt.savefig(os.path.join(figout, 'analogues_signature_vs_DMSO.pdf'))
 
+
+# %%

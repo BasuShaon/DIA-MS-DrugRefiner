@@ -13,12 +13,10 @@ import re
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 import device_summarystatistics
 
-# %%
+# %% Set up absolute and relative paths
 
 path = os.path.dirname(__file__) 
-
 data_path = os.path.join(path, '..', 'data')
-
 fig_path = os.path.join(path, '..', 'figures')
 
 # %% Glu_gal data for 381 (Figure 3)
@@ -78,6 +76,30 @@ device_summarystatistics.t_test(ic50_df['Glucose'], ic50_df['Galactose'])
 # unlog IC50
 print(10**(ic50_df.mean()))
 
+# %% Galactose IC50 for compound 1 & constituents (Figure 3)
+seahorse = pd.DataFrame({'AR-Ligand': [10, 11, 12],
+                        'Lenalidomide': [15,16,17],
+                        'AR-HBD': [1,2,1.5]})
+
+
+cpd1_constituents = pd.read_excel(os.path.join(data_path, 'Figure3_compound1_constituents_gal_250604a.xlsx')).T.iloc[1:,:]
+cpd1_constituents.columns = ['AR-binder', 'AR-HBD', 'Lenalidomide']
+cpd1_constituents = cpd1_constituents.astype('float64')
+order_vec = ['Lenalidomide', 'AR-binder', 'AR-HBD']
+
+cpd1_gal = np.log10(cpd1_constituents)
+
+device_summarystatistics.t_test(pd.concat([cpd1_gal['AR-binder'],cpd1_gal['Lenalidomide']]), cpd1_gal['AR-HBD'])
+
+plt.figure(figsize=(1,3))
+sns.barplot(data = cpd1_gal, order = order_vec, palette = ['grey','red','grey']) #make the ticks better
+plt.tick_params(labelbottom=False, labelleft=False) 
+plt.savefig(os.path.join(fig_path, 'Fig3_galactose.pdf'))
+
+# %%
+
+# %%
+
 # %% Seahorse at max resp (Figure 3)
 seahorse = pd.read_excel(os.path.join(data_path, 'Figure3_Compound1_Seahorse_250204a.xlsx'))
 
@@ -87,6 +109,7 @@ plt.figure(figsize=(1.5,3))
 sns.boxplot(seahorse, order = ['Control','Enza ', 'Compound 1'])
 sns.swarmplot(seahorse, color = 'black')
 plt.savefig(os.path.join(fig_path, 'Fig3_seahorsemax.pdf'))
+
 
 # %% Complex II data for all (Figure 3 and Figure 4)
 
