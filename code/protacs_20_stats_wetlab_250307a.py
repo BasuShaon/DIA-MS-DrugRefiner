@@ -92,7 +92,7 @@ cpd1_gal = np.log10(cpd1_constituents)
 device_summarystatistics.t_test(pd.concat([cpd1_gal['AR-binder'],cpd1_gal['Lenalidomide']]), cpd1_gal['AR-HBD'])
 
 plt.figure(figsize=(1,3))
-sns.barplot(data = cpd1_gal, order = order_vec, palette = ['grey','red','grey']) #make the ticks better
+sns.barplot(data = cpd1_gal, order = order_vec, capsize = 0.1, palette = ['grey','red','grey']) #make the ticks better
 plt.tick_params(labelbottom=False, labelleft=False) 
 plt.savefig(os.path.join(fig_path, 'Fig3_galactose.pdf'))
 
@@ -115,7 +115,7 @@ plt.savefig(os.path.join(fig_path, 'Fig3_seahorsemax.pdf'))
 
 complex2 = pd.read_excel(os.path.join(data_path, 'Figure3_all_Complex2_250204a.xlsx'), index_col = 0)
 
-# Reload
+# Reload    
 importlib.reload(device_summarystatistics)
 
 device_summarystatistics.one_test(complex2.loc['AZ14183816'], 100)

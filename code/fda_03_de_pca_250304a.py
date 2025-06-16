@@ -291,4 +291,4 @@ tableS1.index.name = 'Approved Molecule'
 tableS1full = pd.merge(tableS1, adj_matrix, left_index = True, right_index = True)
 
 #saveout
-tableS1full.to_csv(os.path.join(data_out, 'Science_HTMSdrugsafety_TableS1_250124a.csv'))
+tableS1full.to_csv(os.path.join(data_out, 'NCB_ProteomeGuidedDiscovery_TableS1_250606a.csv'))

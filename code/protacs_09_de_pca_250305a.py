@@ -272,5 +272,5 @@ tableS2.loc[pd.Series(tableS2.index).str.contains('AZ14197166').values, 'Drug Na
 tableS2.loc[tableS2['Drug Name'].isin(['Compound 1', 'Compound 2', 'Compound 3'])]
 
 #saveout
-tableS2full.to_csv(os.path.join(filepath2, 'Science_HTMSdrugsafety_TableS2_250207a.csv'))
+tableS2full.to_csv(os.path.join(filepath2, 'NCB_ProteomeGuidedDiscovery_TableS2_250606a.csv'))
 
