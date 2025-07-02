@@ -93,7 +93,7 @@ project_root/
 
 3. View scores, intermediate and output files in `/data` & `/figures`
 
-### Hardware settings used
+### Hardware used
 
 Model Name:	MacBook Pro
 
