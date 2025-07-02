@@ -56,16 +56,6 @@ project_root/
 ```
 ## Setup Instructions
 
-### Hardware settings used
-
-Model Name:	MacBook Pro
-
-Chip:	Apple M2 Max
-
-Total Number of Cores:	12 (8 performance and 4 efficiency)
-
-Memory:	32 GB
-
 ### Environments
 
 - Python 3.11.5 (download dependencies in a virtual environment from 'requirements.txt') 
@@ -102,3 +92,13 @@ Memory:	32 GB
    *Ignore python modules containing device objects*
 
 3. View scores, intermediate and output files in `/data` & `/figures`
+
+### Hardware settings used
+
+Model Name:	MacBook Pro
+
+Chip:	Apple M2 Max
+
+Total Number of Cores:	12 (8 performance and 4 efficiency)
+
+Memory:	32 GB
