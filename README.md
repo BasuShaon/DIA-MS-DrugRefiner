@@ -71,7 +71,7 @@ project_root/
    cd HT-MS-DrugRefiner
    pip install -r requirements.txt
 
-2. Download source data from FigShare (token under data availability: 420 MB) 
+2. Download source data from FigShare (URL in data availability statement: 420 MB) 
 
 3. Copy contents into `/data`.
 
