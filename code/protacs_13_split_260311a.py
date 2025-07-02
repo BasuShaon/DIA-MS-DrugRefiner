@@ -27,7 +27,7 @@ def clean_drug_index(df):
 
     return df
 
-LFC_matrix = clean_drug_index(pd.read_csv(os.path.join(path, 'Drug_LFCxadjPval_250305a.csv'),
+LFC_matrix = clean_drug_index(pd.read_csv(os.path.join(path, 'Drug_LFCxPval_250305a.csv'),
                      delimiter = ';', decimal = ',', index_col=0, header = 0).T)
 
 expression_matrix =  pd.read_csv(os.path.join(path,'SB_PROTAC_prmatrix_filtered_95_imputed_50_ltrfm_batched_summarized_forlimma_240611a.tsv'),

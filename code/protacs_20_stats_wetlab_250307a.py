@@ -89,7 +89,8 @@ order_vec = ['Lenalidomide', 'AR-binder', 'AR-HBD']
 
 cpd1_gal = np.log10(cpd1_constituents)
 
-device_summarystatistics.t_test(pd.concat([cpd1_gal['AR-binder'],cpd1_gal['Lenalidomide']]), cpd1_gal['AR-HBD'])
+#device_summarystatistics.t_test(pd.concat([cpd1_gal['AR-binder'],cpd1_gal['Lenalidomide']]), cpd1_gal['AR-HBD'])
+device_summarystatistics.t_test(cpd1_gal['AR-binder'], cpd1_gal['AR-HBD'])
 
 plt.figure(figsize=(1,3))
 sns.barplot(data = cpd1_gal, order = order_vec, capsize = 0.1, palette = ['grey','red','grey']) #make the ticks better

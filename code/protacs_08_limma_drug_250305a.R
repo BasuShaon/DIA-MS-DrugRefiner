@@ -105,13 +105,19 @@ fit3 <- eBayes(fit2, trend = TRUE)
 
 pval <- fit3$p.value
 
+adjpval <- apply(pval, 2, function(x) p.adjust(x, method = "BH"))
+
 logFC_matrix2 <- fit3$coefficient
 
 limma_matrix2 <- -log10(pval) * sign(logFC_matrix2)
 
-write.csv2(logFC_matrix2, 'Drug_LFC_250305a.csv')
+limma_matrix3 <- -log10(adjpval) * sign(logFC_matrix2)
 
-write.csv2(limma_matrix2, 'Drug_LFCxPval_2450305a.csv')
+#write.csv2(logFC_matrix2, 'Drug_LFC_250305a.csv')
+
+write.csv2(limma_matrix2, 'Drug_LFCxPval_250305a.csv')
+
+write.csv2(limma_matrix2, 'Drug_LFCxadjPval_250305a.csv')
 
 plot <- function(x, color, vector, y_lim){
   ordered <- x[order(x$logFC,decreasing=TRUE),]

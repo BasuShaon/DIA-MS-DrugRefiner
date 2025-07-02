@@ -90,8 +90,8 @@ setwd(paste(abspath, '/../figures/', sep = ''))
 pdf('heatmap_all_weights_predictions.pdf', width = 10, height = 4)
 
 pheatmap(t(de_matrix), color = color, scale = 'none', cluster_rows = TRUE, cluster_cols = TRUE, 
-         annotation_col = annotation_col, 
-         labels_col = NA,
+        # annotation_col = annotation_col, 
+        # labels_col = NA,
          annotation_colors = annotation_colors, border_color = 'black')
 
 dev.off()

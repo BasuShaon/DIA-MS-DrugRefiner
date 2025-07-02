@@ -18,6 +18,8 @@ data = os.path.join(wd, '..', 'data')
 AZ_meta = pd.read_csv(os.path.join(data, 'AZcompound_metadata_240611a.csv'),
                 header = 0, index_col = 0)
 
+AZ_meta.drop(columns='to_explode.1', inplace=True)
+
 # %% Create drug labels based on Drug ID and E3 Ligase Chemistry 
 
 AZ_cluster = AZ_meta[['Drug ID', 'E3_ligase','target']].copy()
@@ -108,11 +110,11 @@ AZ_cluster['Dend'] = AZ_cluster['Cluster'].map(remapping)
 
 # %% export cleaned AstraZeneca metadata 
 
-AZ_cleaned = pd.merge(AZ_old, AZ_cluster, left_index = True, right_index = True)
+AZ_cleaned = pd.merge(AZ_meta, AZ_cluster, left_index = True, right_index = True)
 
 AZ_export = AZ_cleaned.copy()
 
-AZ_export.drop(['to_explode', 'Cluster'], axis =1, inplace = True)
+AZ_export.drop(['Cluster'], axis =1, inplace = True)
 
 AZ_export.sort_values('Dend', inplace = True)
 

@@ -4,6 +4,8 @@
 ###################################################################################
 import gseapy as gp
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
@@ -176,7 +178,7 @@ plt.legend(loc='upper left')
 plt.savefig(os.path.join(figure_out, 'global_PCA_scree_FDA.pdf'))
 
 # Show the plot
-plt.show()
+#plt.show()
 
 #  %% PCA with drug targets
 
@@ -217,7 +219,7 @@ plt.ylabel('PC2')
 
 plt.title('PCA Scatter Plot')
 
-plt.show()
+#plt.show()
 
 # Plot PCA with target labels
 
@@ -247,7 +249,7 @@ plt.title('PCA Scatter Plot')
 
 plt.savefig(os.path.join(figure_out, 'global_PCA_FDA.pdf'))
 
-plt.show()
+#plt.show()
 
 # %% Dipsersion plots (Kernal Density Estimations, DMSO vs Controls)
 
