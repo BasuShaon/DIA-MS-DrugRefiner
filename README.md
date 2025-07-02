@@ -56,14 +56,15 @@ project_root/
 ```
 ## Setup Instructions
 
-### Hardware used
+### Hardware settings used
 
-  Model Name:	MacBook Pro
-  Model Identifier:	Mac14,5
-  Chip:	Apple M2 Max
-  Total Number of Cores:	12 (8 performance and 4 efficiency)
-  Memory:	32 GB
-  System Firmware Version:	8422.100.650
+Model Name:	MacBook Pro
+
+Chip:	Apple M2 Max
+
+Total Number of Cores:	12 (8 performance and 4 efficiency)
+
+Memory:	32 GB
 
 ### Environments
 
