@@ -56,6 +56,15 @@ project_root/
 ```
 ## Setup Instructions
 
+### Hardware used
+
+  Model Name:	MacBook Pro
+  Model Identifier:	Mac14,5
+  Chip:	Apple M2 Max
+  Total Number of Cores:	12 (8 performance and 4 efficiency)
+  Memory:	32 GB
+  System Firmware Version:	8422.100.650
+
 ### Environments
 
 - Python 3.11.5 (download dependencies in a virtual environment from 'requirements.txt') 
